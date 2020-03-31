@@ -1,0 +1,77 @@
+\usepackage[margin=0.5in, top=0.3in, bottom=0.3in]{geometry}
+\usepackage{fontspec}
+\setmainfont{lato}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,anchorcolor=blue,urlcolor=blue}
+\linespread{1.05}
+\pagestyle{empty} % To get rid of page numbers
+
+\renewcommand{\maketitle}{
+	\begin{center}
+		{\large\bfseries
+		\theauthor}
+
+		\vspace{0.25em}
+
+		Seattle, WA 98105 | \href{mailto:<redacted>}{<redacted>} | <redacted>\\
+		\href{https://www.github.com/thecountoftuscany}{github.com/thecountoftuscany} |\ \ \href{https://www.linkedin.com/in/nishant-elkunchwar}{linkedin.com/in/nishant-elkunchwar}\\
+		Available: \textbf{<redacted>}
+	\end{center}
+}
+
+\titleformat{\section}
+{\vspace{0.5em}\normalsize\bfseries\uppercase} % Formatting for both section numbering and section title
+{} % Section numbering (eg. \thesection for 1,2,3... numbering)
+{0em} % Space between section title and everything around it. This argument is COMPULSARY, all others are optional.
+{}[\titlerule] % Anything after the section number gap but before the section title. Formatting put here affects only the section title, not section numbering. Optional argument in [] is put after the section title
+
+% \titleformat{\section}[frame]
+% {\normalsize}
+% {}
+% {0.25em}
+% {\bfseries\center\uppercase}
+
+\titleformat{\subsection}[runin] % Optional arguments in []. Look at \titleformat documentation for full list
+{\bfseries\small}
+{}
+{0em}
+{}
+
+\titleformat{\subsubsection}[runin]
+{\bfseries}
+{\indent $\bullet$ \quad}
+{0em}
+{}[---]
+
+\titlespacing{\section}
+{0em} % Left margin: space to the left of section title numbering (basically, indentation)
+{0em} % Top margin: space above the section title
+{0.45em} % Bottom margin: space below the section title (for subsection, since we have the `runin` optional argument for subsubsection, this space is added to the right of the section title instead of below)
+
+\titlespacing{\subsection}
+{0em}
+{0.3em}
+{0.3em}
+
+\titlespacing{\subsubsection}
+{0em}
+{0em}
+{0.25em}
+
+\newcommand{\location}[1]{
+	\small{, #1}
+}
+
+\newcommand{\period}[1]{
+	\small{\hfill #1}
+}
+
+\newcommand{\descript}[1]{
+	\small{\\ \textit{#1}}
+}
+
+\newcommand{\listitem}{
+	\\ \indent $\bullet$ \quad
+}
