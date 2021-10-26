@@ -59,24 +59,6 @@
 
 % LaTeX textsizes are: Huge, huge, LARGE, Large, large, normalsize, small, footnotesize, scriptsize, tiny
 
-% TODO: use titling package instead of /renewcommand on /maketitle
-%% title
-\renewcommand{\maketitle}{
-	\begin{center}
-		{\LARGE\bfseries
-      \theauthor}
-
-		\vspace{0.25em}
-
-		\faLink~\href{https://www.example.com}{\underline{example.com}}~\
-		\faEnvelope~\href{mailto:name@domain.com}{\underline{name@domain.com}}~\
-		\faPhone~123-456-7890~\
-		\faGithub~\href{https://www.github.com/username}{\underline{username}}~\
-		\faLinkedin~\href{https://www.linkedin.com/in/username}{\underline{username}}\\
-		Available: \textbf{MMM YYYY}
-	\end{center}
-}
-
 %% section title formats
 \titleformat{\section}
 {\vspace{0.5em}\large\bfseries\uppercase} % Formatting for both section numbering and section title

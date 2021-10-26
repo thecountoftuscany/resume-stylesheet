@@ -1,0 +1,181 @@
+%! TEX program = lualatex
+
+%%% Local Variables: 
+%%% coding: utf-8
+%%% mode: latex
+%%% TeX-engine: xetex
+%%% End:
+
+% TODO: migrate to org mode
+
+\documentclass{article}
+
+% all styling and formatting stored in resumestylesheet.sty, all content in resume.tex
+\usepackage{resumestylesheet}
+
+\begin{document}
+
+\title{R\'esum\'e}  % use \thetitle in the stylesheet if this title is to be used in the document
+\author{Name}  % use /theauthor for this
+
+% TODO: use titling package instead of /renewcommand on /maketitle
+%% title
+\renewcommand{\maketitle}{
+	\begin{center}
+		{\LARGE\bfseries
+      \theauthor}
+
+		\vspace{0.25em}
+
+		\faLink~\href{https://www.example.com}{\underline{example.com}}~\
+		\faEnvelope~\href{mailto:name@domain.com}{\underline{name@domain.com}}~\
+		\faPhone~123-456-7890~\
+		\faGithub~\href{https://www.github.com/username}{\underline{username}}~\
+		\faLinkedin~\href{https://www.linkedin.com/in/username}{\underline{username}}\\
+		Available: \textbf{MMM YYYY}
+	\end{center}
+}
+
+\maketitle
+
+\vspace{-0.8em}  % TODO: check titling or other packages instead of doing this manually
+
+\section{Education}
+	\subsection{\faGraduationCap~Some degree in some domain}
+	\period{MMM YYYY--MMM YYYY (Expected)}
+	\university{Name of university, City, State, Country}
+	\gpa{GPA: number / number}
+	\coursework{
+		course1,
+		course2,
+		course3
+	}
+
+	\subsection{\faGraduationCap~Some degree in some domain}
+	\period{MMM YYYY--MMM YYYY}
+	\university{Name of university, City, State, Country}
+	\gpa{GPA: number / number}
+	\coursework{
+		courseA,
+		courseB,
+		courseC,
+		courseD
+	}
+
+% \vspace{1em}
+% \faEdit~\textit{Audited courses / MOOCs:}
+	% some course (university / MOOC platform)
+
+\section{Technical skills}
+	\begin{flushleft}
+	\begin{table}[!h]
+	\begin{tabularx}{\linewidth}{lX}
+		\textbf{Programming:}\
+		language1,
+		language2,
+		language3,
+		language4,
+		language5
+		&
+		\textbf{Tools:}\
+		{\LaTeX},
+		tool1,
+		tool2,
+		tool3,
+		tool4,
+		tool5
+		\\
+
+		\textbf{Libraries:}\
+		library1,
+		library2,
+		library3,
+		library4,
+		library5
+		&
+		\textbf{Mechanical:}\
+		software1,
+		software2,
+		software3,
+		software4
+	\end{tabularx}
+	\end{table}
+	\end{flushleft}
+
+\vspace{-\baselineskip}
+\vspace{-0.25em}
+
+\section{Experience}
+  \subsection{\faUniversity~\href{https://www.example.com}{\underline{Some lab}}}
+	\location{Some university, state, country}
+	\period{MMM YYYY--Present}
+	\info{Position / job title}
+	\begin{itemize}
+		\item \textbf{Project1 --- }
+		Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  Nulla posuere.  Donec vitae dolor.  Nullam tristique diam non turpis.  Cras placerat accumsan nulla.  Nullam rutrum.  Nam vestibulum accumsan nisl.
+
+		\item \textbf{Project2~\href{https://github.com/username/repo}{\underline{\faGithub}} --- }
+		Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  Nulla posuere.  Donec vitae dolor.  Nullam tristique diam non turpis.  Cras placerat accumsan nulla.  Nullam rutrum.  Nam vestibulum accumsan nisl.
+	\end{itemize}
+
+	\subsection{\faIndustry~Some company}
+	\location{City, State, Country}
+	\period{MMM YYYY--MMM YYYY}
+	\info{Job title, Department}
+	\begin{itemize}
+		\item Did this thing
+		\item Also performed this other thing
+	\end{itemize}
+
+\section{Projects}
+	\subsection{Project name~\href{https://github.com/username/repo}{\underline{\faGithub}}}
+	\period{MMM YYYY--MMM YYYY}
+	\info{Organization, City, State, Country}
+	\begin{itemize}
+		\item Developed some system
+		\item Implemented this thing
+	\end{itemize}
+
+	\subsection{Another project~\href{https://github.com/username/repo}{\underline{\faGithub}}}
+	\period{MMM YYYY--MMM YYYY}
+	\info{University, City, State, Country}
+	\begin{itemize}
+		\item Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+		\item Donec hendrerit tempor tellus.
+		\item Donec pretium posuere tellus.
+		\item Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.
+	\end{itemize}
+
+	\subsection{Personal projects}
+	\period{MMM YYYY--MMM YYYY}
+        \vspace{-\baselineskip}  % weird that I have to do this here
+	\begin{itemize}
+		\item \textbf{Project title~\href{https://github.com/username/repo}{\underline{\faGithub}} --- }
+		Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+		\item \textbf{Project title~\href{https://github.com/username/repo}{\underline{\faGithub}} --- }
+		Nulla posuere.  Donec vitae dolor.  Nullam tristique diam non turpis.
+
+		\item \textbf{Project title~\href{https://github.com/username/repo}{\underline{\faGithub}} --- }
+		Cras placerat accumsan nulla.  Nullam rutrum.  Nam vestibulum accumsan nisl.
+	\end{itemize}
+
+\section{Leadership}
+	\subsection{Organization}
+	\location{Institution, City, State, Country}
+	\period{MMM YYYY--MMM YYYY}
+	\info{Job title}
+	\begin{itemize}
+		\item Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+		\item Donec hendrerit tempor tellus.
+		\item Nullam tristique diam non turpis.
+	\end{itemize}
+
+\section{Some other section you want}
+	\begin{itemize}
+		\item Awarded this prize
+		\item Volunteered at this place
+		\item Made this template
+	\end{itemize}
+
+\end{document}
