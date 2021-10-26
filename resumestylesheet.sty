@@ -1,28 +1,85 @@
-\usepackage[margin=0.5in, top=0.3in, bottom=0.3in]{geometry}
-\usepackage{fontspec}
-\setmainfont{lato}
-\usepackage{titlesec}
-\usepackage{titling}
-\usepackage{hyperref}
-\hypersetup{colorlinks=true,linkcolor=blue,anchorcolor=blue,urlcolor=blue}
-\linespread{1.05}
-\pagestyle{empty} % To get rid of page numbers
+%% Packages
+\usepackage[margin=0.4in, top=0.2in, bottom=0.2in]{geometry}  % page margins
+\usepackage{fontspec} \setmainfont{lato}  % fonts
+\usepackage{fontawesome}  % icons
+\usepackage{titlesec}  % section title formatting
+\usepackage{titling}  % customize /maketitle, /author, /thanks etc
+\usepackage{hyperref}  % hyperlinks
+\usepackage{tabularx}  % tables with variable width columns
+\usepackage{enumitem}  % enum environment (unordered lists)
+\usepackage{xcolor}  % colors (used for href)
+\usepackage{ifthen}  % use conditionals
 
+%% set colors
+\newcommand{\colorscheme}{light}  % options are light and dark
+\ifthenelse{\equal{\colorscheme}{dark}}
+  %% dark mode for screen version (can borrow from website CSS)
+  {
+    \definecolor{darkbgcolor}{HTML}{1D1F21}  % alternate 212121
+    \definecolor{linkcolor}{HTML}{3DAEE9}  % alternate FFB300
+    \pagecolor{darkbgcolor}
+    \color{white}
+  }
+  {
+    %% light mode for print version (use one of these)
+    \definecolor{linkcolor}{HTML}{0000FF}  % alternate 0645AD, 0D47A1
+  }
+
+%% Options
+% bullet points
+\setlist[itemize]{
+	noitemsep,
+	nosep,
+	topsep=0pt,
+}
+% hyperlinks
+\hypersetup{%
+	colorlinks=true,
+	% linkcolor=blue,
+  linkcolor=linkcolor,
+	anchorcolor=linkcolor,
+	urlcolor=linkcolor,
+	linkbordercolor=linkcolor,
+	pdfborderstyle={/S/U/W 1}
+}
+\linespread{1.1}  % linespacing
+\setlength\parindent{0pt}  % no paragraph indentation
+\pagestyle{empty} % no page numbers
+% for spacing around floats (eg, figures, tables etc)
+\setlength\intextsep{1pt}
+\setlength\textfloatsep{1pt}
+\setlength\floatsep{1pt}
+\setlength\belowcaptionskip{1pt}
+\setlength\abovecaptionskip{1pt}
+% \renewcommand{\arraystretch}{1.2}  % Change spacing between rows in a table
+% font size inside tables
+\usepackage{floatrow}
+\DeclareFloatFont{small}{\small}  % "scriptsize" is defined by floatrow, "small" not
+\floatsetup[table]{font=small}
+
+% LaTeX textsizes are: Huge, huge, LARGE, Large, large, normalsize, small, footnotesize, scriptsize, tiny
+
+% TODO: use titling package instead of /renewcommand on /maketitle
+%% title
 \renewcommand{\maketitle}{
 	\begin{center}
-		{\large\bfseries
-		\theauthor}
+		{\LARGE\bfseries
+      \theauthor}
 
 		\vspace{0.25em}
 
-		Seattle, WA 98105 | \href{mailto:<redacted>}{<redacted>} | <redacted>\\
-		\href{https://www.github.com/thecountoftuscany}{github.com/thecountoftuscany} |\ \ \href{https://www.linkedin.com/in/nishant-elkunchwar}{linkedin.com/in/nishant-elkunchwar}\\
-		Available: \textbf{<redacted>}
+		\faLink~\href{https://www.example.com}{\underline{example.com}}~\
+		\faEnvelope~\href{mailto:name@domain.com}{\underline{name@domain.com}}~\
+		\faPhone~123-456-7890~\
+		\faGithub~\href{https://www.github.com/username}{\underline{username}}~\
+		\faLinkedin~\href{https://www.linkedin.com/in/username}{\underline{username}}\\
+		Available: \textbf{MMM YYYY}
 	\end{center}
 }
 
+%% section title formats
 \titleformat{\section}
-{\vspace{0.5em}\normalsize\bfseries\uppercase} % Formatting for both section numbering and section title
+{\vspace{0.5em}\large\bfseries\uppercase} % Formatting for both section numbering and section title
 {} % Section numbering (eg. \thesection for 1,2,3... numbering)
 {0em} % Space between section title and everything around it. This argument is COMPULSARY, all others are optional.
 {}[\titlerule] % Anything after the section number gap but before the section title. Formatting put here affects only the section title, not section numbering. Optional argument in [] is put after the section title
@@ -43,7 +100,7 @@
 {\bfseries}
 {\indent $\bullet$ \quad}
 {0em}
-{}[---]
+{}[ ---]
 
 \titlespacing{\section}
 {0em} % Left margin: space to the left of section title numbering (basically, indentation)
@@ -52,26 +109,37 @@
 
 \titlespacing{\subsection}
 {0em}
-{0.3em}
-{0.3em}
+{0.5em}
+{0em}
 
 \titlespacing{\subsubsection}
 {0em}
 {0em}
 {0.25em}
 
+%% tuck away formatting inside context-specific, readable command names
 \newcommand{\location}[1]{
 	\small{, #1}
 }
 
 \newcommand{\period}[1]{
-	\small{\hfill #1}
+	\hfill \small{\faClockO~#1}\\
+  % \hrulefill, \dotfill are alternatives for \hfill
 }
 
-\newcommand{\descript}[1]{
-	\small{\\ \textit{#1}}
+\newcommand{\gpa}[1]{
+	\small{\hfill \faBook~#1}\\
 }
 
-\newcommand{\listitem}{
-	\\ \indent $\bullet$ \quad
+\newcommand{\coursework}[1]{
+	\small{\faEdit~\textit{Coursework:} #1}
+}
+
+\newcommand{\info}[1]{
+	% \small{\\ \faInfoCircle~\textit{#1}}
+	\small{\textit{#1}}
+}
+
+\newcommand{\university}[1]{
+	\small{\faUniversity~\textit{#1}}
 }
